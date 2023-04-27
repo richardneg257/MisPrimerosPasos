@@ -17,4 +17,10 @@ public class AlumnoApplication : IAlumnoApplication
         var alumnos = await _alumnoRepository.ListarAlumnos();
         return alumnos;
     }
+
+    public async Task<Alumno> ObtenerAlumno(int id)
+    {
+        var alumno = await _alumnoRepository.ObtenerAlumno(id);
+        return alumno;
+    }
 }

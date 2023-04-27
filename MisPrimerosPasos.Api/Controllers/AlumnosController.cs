@@ -14,10 +14,24 @@ public class AlumnosController : ControllerBase
         _alumnoApplication = alumnoApplication;
     }
 
-    [HttpGet]
+    [HttpGet] // GET http://localhost/api/alumnos
     public async Task<ActionResult<List<Alumno>>> ListarAlumnos()
     {
         var alumnos = await _alumnoApplication.ListarAlumnos();
         return alumnos;
     }
+
+    [HttpGet("{id}")]  // GET http://localhost/api/alumnos/5
+    public async Task<ActionResult<Alumno>> ObtenerAlumno(int id)
+    {
+        var alumno = await _alumnoApplication.ObtenerAlumno(id);
+
+        if(alumno == null)
+        {
+            return NotFound($"Ups! No se encontró el Alumno con ID {id}");
+        }
+
+        return alumno;
+    }
 }
+

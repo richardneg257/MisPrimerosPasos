@@ -17,4 +17,10 @@ public class AlumnoRepository : IAlumnoRepository
         var alumnos = await _context.Alumnos.ToListAsync();
         return alumnos;
     }
+
+    public async Task<Alumno> ObtenerAlumno(int id)
+    {
+        var alumno = await _context.Alumnos.FirstOrDefaultAsync(al => al.Id == id);
+        return alumno;
+    }
 }
