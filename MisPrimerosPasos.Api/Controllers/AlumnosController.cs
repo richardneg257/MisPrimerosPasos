@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MisPrimerosPasos.Application.Dtos;
+using MisPrimerosPasos.Application.Implementaciones;
 using MisPrimerosPasos.Application.Interfaces;
-using MisPrimerosPasos.Entity;
 
 namespace MisPrimerosPasos.Api.Controllers;
 [Route("api/[controller]")]
@@ -15,14 +16,14 @@ public class AlumnosController : ControllerBase
     }
 
     [HttpGet] // GET http://localhost/api/alumnos
-    public async Task<ActionResult<List<Alumno>>> ListarAlumnos()
+    public async Task<ActionResult<List<AlumnoDto>>> ListarAlumnos()
     {
         var alumnos = await _alumnoApplication.ListarAlumnos();
         return alumnos;
     }
 
     [HttpGet("{id}")]  // GET http://localhost/api/alumnos/5
-    public async Task<ActionResult<Alumno>> ObtenerAlumno(int id)
+    public async Task<ActionResult<AlumnoDetalleDto>> ObtenerAlumno(int id)
     {
         var alumno = await _alumnoApplication.ObtenerAlumno(id);
 

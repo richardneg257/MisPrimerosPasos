@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using MisPrimerosPasos.Application.Implementaciones;
 using MisPrimerosPasos.Application.Interfaces;
+using MisPrimerosPasos.Application.Profiles;
 using MisPrimerosPasos.Repository;
 using MisPrimerosPasos.Repository.Implementaciones;
 using MisPrimerosPasos.Repository.Interfaces;
@@ -10,6 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(cfg =>
                                         cfg.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
 builder.Services.AddScoped<IAlumnoRepository, AlumnoRepository>();
 builder.Services.AddScoped<IAlumnoApplication, AlumnoApplication>();
