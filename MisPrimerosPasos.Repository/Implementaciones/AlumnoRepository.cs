@@ -35,4 +35,10 @@ public class AlumnoRepository : IAlumnoRepository
         _context.Alumnos.Remove(alumno);
         await _context.SaveChangesAsync();
     }
+
+    public async Task ActualizarAlumno(Alumno alumno)
+    {
+        _context.Alumnos.Update(alumno);
+        await _context.SaveChangesAsync();
+    }
 }

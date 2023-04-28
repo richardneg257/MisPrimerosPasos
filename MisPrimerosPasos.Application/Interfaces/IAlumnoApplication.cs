@@ -7,4 +7,5 @@ public interface IAlumnoApplication
     Task<AlumnoDetalleDto> ObtenerAlumno(int id);
     Task InsertarAlumno(AlumnoCreacionDto alumnoCreacion);
     Task EliminarAlumno(int id);
+    Task ActualizarAlumno(int id, AlumnoActualizarDto alumnoActualizar);
 }

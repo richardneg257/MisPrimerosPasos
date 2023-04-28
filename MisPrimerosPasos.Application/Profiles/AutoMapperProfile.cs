@@ -10,5 +10,6 @@ public class AutoMapperProfile : Profile
         CreateMap<Alumno, AlumnoDetalleDto>();
         CreateMap<Alumno, AlumnoDto>();
         CreateMap<AlumnoCreacionDto, Alumno>();
+        CreateMap<AlumnoActualizarDto, Alumno>();
     }
 }

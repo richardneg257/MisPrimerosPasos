@@ -50,5 +50,13 @@ public class AlumnosController : ControllerBase
 
         return Ok();
     }
+
+    [HttpPut("{id}")]
+    public async Task<ActionResult> ActualizarAlumno([FromRoute] int id, [FromBody] AlumnoActualizarDto alumnoActualizar)
+    {
+        await _alumnoApplication.ActualizarAlumno(id, alumnoActualizar);
+
+        return Ok();
+    }
 }
 

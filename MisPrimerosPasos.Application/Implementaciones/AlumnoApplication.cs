@@ -45,4 +45,13 @@ public class AlumnoApplication : IAlumnoApplication
         var alumno = await _alumnoRepository.ObtenerAlumno(id);
         await _alumnoRepository.EliminarAlumno(alumno);
     }
+
+    public async Task ActualizarAlumno(int id, AlumnoActualizarDto alumnoActualizar)
+    {
+        var alumno = await _alumnoRepository.ObtenerAlumno(id);
+
+        _mapper.Map(alumnoActualizar, alumno);
+
+        await _alumnoRepository.ActualizarAlumno(alumno);
+    }
 }

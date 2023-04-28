@@ -7,4 +7,5 @@ public interface IAlumnoRepository
     Task<Alumno> ObtenerAlumno(int id);
     Task InsertarAlumno(Alumno alumno);
     Task EliminarAlumno(Alumno alumno);
+    Task ActualizarAlumno(Alumno alumno);
 }
