@@ -39,4 +39,10 @@ public class AlumnoApplication : IAlumnoApplication
         var alumno = _mapper.Map<Alumno>(alumnoCreacion);
         await _alumnoRepository.InsertarAlumno(alumno);
     }
+
+    public async Task EliminarAlumno(int id)
+    {
+        var alumno = await _alumnoRepository.ObtenerAlumno(id);
+        await _alumnoRepository.EliminarAlumno(alumno);
+    }
 }

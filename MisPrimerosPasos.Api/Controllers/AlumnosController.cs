@@ -27,7 +27,7 @@ public class AlumnosController : ControllerBase
     {
         var alumno = await _alumnoApplication.ObtenerAlumno(id);
 
-        if(alumno == null)
+        if (alumno == null)
         {
             return NotFound($"Ups! No se encontró el Alumno con ID {id}");
         }
@@ -39,6 +39,14 @@ public class AlumnosController : ControllerBase
     public async Task<ActionResult> InsertarAlumno([FromBody] AlumnoCreacionDto alumnoCreacion)
     {
         await _alumnoApplication.InsertarAlumno(alumnoCreacion);
+
+        return Ok();
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult> EliminarAlumno([FromRoute] int id)
+    {
+        await _alumnoApplication.EliminarAlumno(id);
 
         return Ok();
     }
