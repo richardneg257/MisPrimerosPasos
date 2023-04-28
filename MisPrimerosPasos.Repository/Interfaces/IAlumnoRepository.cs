@@ -5,4 +5,5 @@ public interface IAlumnoRepository
 {
     Task<List<Alumno>> ListarAlumnos();
     Task<Alumno> ObtenerAlumno(int id);
+    Task InsertarAlumno(Alumno alumno);
 }

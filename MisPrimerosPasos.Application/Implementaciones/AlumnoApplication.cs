@@ -33,4 +33,10 @@ public class AlumnoApplication : IAlumnoApplication
 
         return alumnoDetalleDto;
     }
+
+    public async Task InsertarAlumno(AlumnoCreacionDto alumnoCreacion)
+    {
+        var alumno = _mapper.Map<Alumno>(alumnoCreacion);
+        await _alumnoRepository.InsertarAlumno(alumno);
+    }
 }

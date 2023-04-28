@@ -23,4 +23,10 @@ public class AlumnoRepository : IAlumnoRepository
         var alumno = await _context.Alumnos.FirstOrDefaultAsync(al => al.Id == id);
         return alumno;
     }
+
+    public async Task InsertarAlumno(Alumno alumno)
+    {
+        _context.Alumnos.Add(alumno);
+        await _context.SaveChangesAsync();
+    }
 }

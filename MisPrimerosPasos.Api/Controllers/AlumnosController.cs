@@ -23,7 +23,7 @@ public class AlumnosController : ControllerBase
     }
 
     [HttpGet("{id}")]  // GET http://localhost/api/alumnos/5
-    public async Task<ActionResult<AlumnoDetalleDto>> ObtenerAlumno(int id)
+    public async Task<ActionResult<AlumnoDetalleDto>> ObtenerAlumno([FromRoute] int id)
     {
         var alumno = await _alumnoApplication.ObtenerAlumno(id);
 
@@ -33,6 +33,14 @@ public class AlumnosController : ControllerBase
         }
 
         return alumno;
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> InsertarAlumno([FromBody] AlumnoCreacionDto alumnoCreacion)
+    {
+        await _alumnoApplication.InsertarAlumno(alumnoCreacion);
+
+        return Ok();
     }
 }
 

@@ -5,4 +5,5 @@ public interface IAlumnoApplication
 {
     Task<List<AlumnoDto>> ListarAlumnos();
     Task<AlumnoDetalleDto> ObtenerAlumno(int id);
+    Task InsertarAlumno(AlumnoCreacionDto alumnoCreacion);
 }
